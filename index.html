@@ -23,7 +23,7 @@
   --text-dim:      #9B90B8;   /* secondary text on dark                      */
   --ink-dim:       #5A4E78;   /* secondary text on light                     */
   --line:          #2A2342;   /* hairlines on dark                           */
-  --line-light:    #E3DDF2;   /* hairlines on light                          */
+  --line-light:    #E3DDF2;   /* hairlines on light                         */
   --good:          #7BE0AD;   /* LIVE markers, sparingly                     */
 }
 .reveal{
@@ -41,7 +41,6 @@
   display:flex;
   flex-direction:column;
 }
-/* theme variables per slide */
 section.dark{ --fg:var(--text-light); --fg-dim:var(--text-dim); --accent:var(--violet-soft); --surface:var(--bg-dark-2); --hair:var(--line); color:var(--text-light); }
 section.light{ --fg:var(--ink); --fg-dim:var(--ink-dim); --accent:var(--violet-strong); --surface:var(--card-light); --hair:var(--line-light); color:var(--ink); }
 
@@ -66,7 +65,6 @@ section.light{ --fg:var(--ink); --fg-dim:var(--ink-dim); --accent:var(--violet-s
   font-size:14px; font-weight:500; letter-spacing:1.5px; text-transform:uppercase;
 }
 .caption-raw{ font-size:14px; font-weight:500; letter-spacing:1.5px; }
-/* G1 — content zone vertically centered between headline block and footer */
 .content{ flex:1; min-height:0; display:flex; align-items:center; }
 .zone{ width:100%; }
 
@@ -77,7 +75,7 @@ section.light{ --fg:var(--ink); --fg-dim:var(--ink-dim); --accent:var(--violet-s
 }
 section.light .card{ box-shadow:0 4px 24px rgba(36,28,54,0.06); }
 
-/* ---------- confirm-box component (2.6 + G2: subordinate) ---------- */
+/* ---------- confirm-box component (2.6, subordinate) ---------- */
 .confirm-box{
   border:2px dashed var(--brand); border-radius:12px;
   padding:12px 16px; color:var(--violet-soft); font-size:18px;
@@ -95,7 +93,7 @@ section.light .confirm-box{ color:var(--violet-strong); }
   background:rgba(139,92,246,0.06); font-style:italic;
 }
 
-/* ---------- badges & chips (2.7) ---------- */
+/* ---------- badges & chips ---------- */
 .badge{
   display:inline-flex; align-items:center; gap:10px;
   border:1px solid var(--hair); border-radius:999px; padding:8px 18px;
@@ -116,9 +114,10 @@ section.light .confirm-box{ color:var(--violet-strong); }
 }
 .chip.upper{ text-transform:uppercase; }
 .chip.lg{ font-size:18px; padding:12px 24px; }
+.chip.p20{ font-size:20px; padding:14px 28px; letter-spacing:1px; }
 .chip.xl{ font-size:22px; padding:20px 28px; letter-spacing:1px; }
 
-/* ---------- layer stack (2.7) ---------- */
+/* ---------- layer stack ---------- */
 .layerbar{
   border:1px solid var(--hair); border-radius:12px; background:var(--surface);
   padding:20px 28px; font-size:20px; font-weight:500; color:var(--fg);
@@ -141,7 +140,7 @@ section.light .sfooter{ color:rgba(36,28,54,0.40); }
 section.dark .sfooter img{ opacity:0.8; }
 section.light .sfooter img{ opacity:0.75; }
 
-/* ---------- misc helpers ---------- */
+/* ---------- misc ---------- */
 .row{ display:flex; gap:24px; }
 .col{ display:flex; flex-direction:column; gap:24px; }
 .placeholder-frame{
@@ -153,13 +152,16 @@ section.light .sfooter img{ opacity:0.75; }
 .dotline{ line-height:1.6; }
 svg text{ font-family:'Inter',sans-serif; font-feature-settings:"tnum" 1; }
 .nb{ white-space:nowrap; }
-/* corner ticks for image-frame placeholders (S15) */
 .frame-ticks{ position:relative; }
 .frame-ticks .tick{ position:absolute; width:22px; height:22px; border:2px solid rgba(139,92,246,0.6); }
 .frame-ticks .tick.tl{ left:-2px; top:-2px; border-right:none; border-bottom:none; border-radius:6px 0 0 0; }
 .frame-ticks .tick.tr{ right:-2px; top:-2px; border-left:none; border-bottom:none; border-radius:0 6px 0 0; }
 .frame-ticks .tick.bl{ left:-2px; bottom:-2px; border-right:none; border-top:none; border-radius:0 0 0 6px; }
 .frame-ticks .tick.br{ right:-2px; bottom:-2px; border-left:none; border-top:none; border-radius:0 0 6px 0; }
+.mini-tile{ flex:1; text-align:left; padding:0 24px; }
+.mini-tile + .mini-tile{ border-left:1px solid var(--hair); }
+.mini-tile .num{ font-family:'Poppins',sans-serif; font-size:48px; font-weight:600; line-height:1.1; white-space:nowrap; }
+.mini-tile .lbl{ font-size:14px; font-weight:500; letter-spacing:1.5px; text-transform:uppercase; color:var(--fg-dim); margin-top:6px; }
 
 /* ---------- print-pdf hint ---------- */
 .pdf-hint{
@@ -178,9 +180,10 @@ svg text{ font-family:'Inter',sans-serif; font-feature-settings:"tnum" 1; }
 
 <!-- ================================================================ SLIDE 01 · DARK · TITLE -->
 <section class="dark" data-background-gradient="radial-gradient(120% 130% at 0% 0%, #1A1430 0%, #0B0A1A 62%)">
-  <svg class="bg-accent" style="right:0; top:0;" width="960" height="1080" viewBox="0 0 960 1080" aria-hidden="true">
-    <circle cx="1240" cy="540" r="720" fill="none" stroke="var(--violet-soft)" stroke-opacity="0.06" stroke-width="1"/>
-    <circle cx="1240" cy="540" r="560" fill="none" stroke="var(--violet-soft)" stroke-opacity="0.06" stroke-width="1"/>
+  <svg class="bg-accent" style="inset:0; width:100%; height:100%;" viewBox="0 0 1792 976" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <circle cx="1520" cy="150" r="430" fill="none" stroke="var(--violet-soft)" stroke-opacity="0.06" stroke-width="1"/>
+    <circle cx="1560" cy="240" r="600" fill="none" stroke="var(--violet-soft)" stroke-opacity="0.05" stroke-width="1"/>
+    <circle cx="1800" cy="1160" r="560" fill="none" stroke="var(--violet-soft)" stroke-opacity="0.055" stroke-width="1"/>
   </svg>
   <div style="display:flex; justify-content:space-between; align-items:flex-start;">
     <div>
@@ -193,26 +196,28 @@ svg text{ font-family:'Inter',sans-serif; font-feature-settings:"tnum" 1; }
     </div>
   </div>
   <div class="content">
-    <div class="zone" style="display:flex; flex-direction:column; gap:30px;">
-      <h1 style="font-size:72px; max-width:1792px; margin:0;">The sovereign AI operating system —<span class="l2">engineered in Germany, deployed in the <span class="nb">Gulf.</span></span></h1>
-      <p class="subline">One operating system. Four layers. National capability you can own.</p>
-      <svg width="480" height="56" viewBox="0 0 480 56" aria-hidden="true">
-        <polyline points="30,36 170,18 310,40 450,22" fill="none" stroke="var(--violet-soft)" stroke-opacity="0.25" stroke-width="1"/>
-        <circle cx="30" cy="36" r="3" fill="var(--violet-soft)" fill-opacity="0.6"/>
-        <circle cx="170" cy="18" r="2.5" fill="var(--violet-soft)" fill-opacity="0.6"/>
-        <circle cx="310" cy="40" r="3" fill="var(--violet-soft)" fill-opacity="0.6"/>
-        <circle cx="450" cy="22" r="2.5" fill="var(--violet-soft)" fill-opacity="0.6"/>
-      </svg>
-      <div style="display:flex; gap:18px; flex-wrap:wrap;">
-        <span class="chip lg">Noctive Assistant</span>
-        <span class="chip lg">Noctive Walküre</span>
-        <span class="chip lg">Noctive Research</span>
-        <span class="chip lg">Noctive Studio</span>
+    <div class="zone" style="display:flex; flex-direction:column; gap:32px;">
+      <h1 style="font-size:76px; max-width:1500px; margin:0;">The sovereign AI operating system —<span class="l2">engineered in Germany,<br>deployed in the <span class="nb">Gulf.</span></span></h1>
+      <div style="display:flex; align-items:center; gap:48px;">
+        <p class="subline" style="max-width:none;">One operating system. Four layers. National capability you can own.</p>
+        <svg width="380" height="52" viewBox="0 0 380 52" style="flex:0 0 auto;" aria-hidden="true">
+          <polyline points="20,34 120,16 230,38 360,20" fill="none" stroke="var(--violet-soft)" stroke-opacity="0.25" stroke-width="1"/>
+          <circle cx="20" cy="34" r="3" fill="var(--violet-soft)" fill-opacity="0.6"/>
+          <circle cx="120" cy="16" r="2.5" fill="var(--violet-soft)" fill-opacity="0.6"/>
+          <circle cx="230" cy="38" r="3" fill="var(--violet-soft)" fill-opacity="0.6"/>
+          <circle cx="360" cy="20" r="2.5" fill="var(--violet-soft)" fill-opacity="0.6"/>
+        </svg>
       </div>
-      <div style="display:flex; gap:14px; flex-wrap:wrap;">
-        <span class="chip upper">LIVE IN PRODUCTION SINCE 29 MAY 2026</span>
-        <span class="chip upper">387 MS P50</span>
-        <span class="chip upper">OWN GPU HARDWARE (GERMANY)</span>
+      <div style="display:flex; gap:18px; flex-wrap:wrap;">
+        <span class="chip p20">Noctive Assistant</span>
+        <span class="chip p20">Noctive Walküre</span>
+        <span class="chip p20">Noctive Research</span>
+        <span class="chip p20">Noctive Studio</span>
+      </div>
+      <div style="display:flex; gap:16px; flex-wrap:wrap;">
+        <span class="chip lg upper">LIVE IN PRODUCTION SINCE 29 MAY 2026</span>
+        <span class="chip lg upper">387 MS P50</span>
+        <span class="chip lg upper">OWN GPU HARDWARE (GERMANY)</span>
       </div>
     </div>
   </div>
@@ -228,161 +233,112 @@ svg text{ font-family:'Inter',sans-serif; font-feature-settings:"tnum" 1; }
   <aside class="notes">Noctive builds the sovereign AI operating system for governments and enterprises — engineered in Germany, deployed in the Gulf. Four layers, one system. Everything I show you today is either live or clearly labeled as roadmap.</aside>
 </section>
 
-<!-- ================================================================ SLIDE 02 · DARK · GEOPOLITICAL MOMENT -->
+<!-- ================================================================ SLIDE 02 · DARK · VISION -->
 <section class="dark" data-background-gradient="radial-gradient(120% 130% at 0% 0%, #1A1430 0%, #0B0A1A 62%)">
-  <div class="kicker">02 · THE MOMENT</div>
-  <h1>AI is now sovereign infrastructure.</h1>
-  <p class="subline">Compute, models and data have become instruments of national power.</p>
-  <div class="content">
-    <div class="zone row" style="align-items:stretch; height:100%; max-height:640px;">
-      <svg width="1000" height="620" viewBox="0 0 1000 620" style="flex:0 0 55%; height:100%;" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-        <defs>
-          <pattern id="mapdots2" width="18" height="18" patternUnits="userSpaceOnUse">
-            <circle cx="4" cy="4" r="1.7" fill="var(--violet-soft)"/>
-          </pattern>
-          <linearGradient id="arcg2" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0" stop-color="var(--violet-soft)" stop-opacity="0.25"/>
-            <stop offset="0.55" stop-color="var(--violet-soft)"/>
-            <stop offset="1" stop-color="var(--brand)"/>
-          </linearGradient>
-          <filter id="arcblur2" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="4"/></filter>
-        </defs>
-        <!-- minimal dotted map suggestion: Europe + Arabian peninsula -->
-        <path d="M130,110 Q235,60 340,95 Q410,78 455,130 Q490,190 445,242 Q385,295 295,290 Q190,306 130,248 Q84,175 130,110 Z" fill="url(#mapdots2)" opacity="0.30"/>
-        <path d="M620,330 Q710,296 810,330 Q890,352 900,420 Q878,500 775,512 Q672,524 628,466 Q584,398 620,330 Z" fill="url(#mapdots2)" opacity="0.30"/>
-        <!-- corridor arc Munich <-> Abu Dhabi/Dubai — rises, then descends into Dubai (G4) -->
-        <path d="M340,190 Q600,30 780,420" fill="none" stroke="var(--violet-soft)" stroke-opacity="0.5" stroke-width="5" filter="url(#arcblur2)"/>
-        <path d="M340,190 Q600,30 780,420" fill="none" stroke="url(#arcg2)" stroke-width="1.5" stroke-dasharray="12 9"/>
-        <circle cx="340" cy="190" r="6" fill="var(--brand)"/>
-        <circle cx="340" cy="190" r="13" fill="none" stroke="var(--brand)" stroke-opacity="0.4" stroke-width="1"/>
-        <circle cx="780" cy="420" r="6" fill="var(--brand)"/>
-        <circle cx="780" cy="420" r="13" fill="none" stroke="var(--brand)" stroke-opacity="0.4" stroke-width="1"/>
-        <text x="328" y="168" fill="var(--text-dim)" font-size="15" font-weight="500" letter-spacing="1.5" text-anchor="end">MUNICH</text>
-        <text x="802" y="447" fill="var(--text-dim)" font-size="15" font-weight="500" letter-spacing="1.5">ABU DHABI / DUBAI</text>
-      </svg>
-      <div class="col" style="flex:1; gap:0; justify-content:space-between;">
-        <div class="card" style="padding:32px 36px;">
-          <div style="font-family:'Poppins',sans-serif; font-size:64px; font-weight:600; color:var(--text-light); line-height:1;">~$66B</div>
-          <div class="body-copy" style="color:var(--text-dim); margin-top:12px;">— sovereign wealth funds deployed into AI and digital infrastructure in 2025 (Global SWF, reported Jan 2026).</div>
-        </div>
-        <div class="card" style="padding:32px 36px;">
-          <div style="font-family:'Poppins',sans-serif; font-size:64px; font-weight:600; color:var(--text-light); line-height:1;">$49B</div>
-          <div class="body-copy" style="color:var(--text-dim); margin-top:12px;">— MGX confirmed the final close of Fund I on 1 July 2026, above its $45B target.</div>
-        </div>
-        <div class="card" style="padding:32px 36px;">
-          <div style="font-family:'Poppins',sans-serif; font-size:64px; font-weight:600; color:var(--text-light); line-height:1;">$1.5B</div>
-          <div class="body-copy" style="color:var(--text-dim); margin-top:12px;">— Microsoft's strategic investment in G42 (April 2024).</div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="sfooter"><span>NOCTIVE — CONFIDENTIAL</span><span class="fr"><img src="./assets/noctive-icon-mini.svg" alt=""><span>02 / 17</span></span></div>
-  <aside class="notes">The question is no longer whether AI matters, but who owns it. Gulf funds alone put ~$66B into AI infrastructure last year, and MGX just closed a $49B AI fund. This is the market we're built for.</aside>
-</section>
-
-<!-- ================================================================ SLIDE 03 · DARK · VISION -->
-<section class="dark" data-background-gradient="radial-gradient(120% 130% at 0% 0%, #1A1430 0%, #0B0A1A 62%)">
-  <div class="kicker">03 · THE VISION</div>
+  <div class="kicker">02 · THE VISION</div>
   <h1>One operating system. Four layers.<span class="l2">National capability you can own.</span></h1>
-  <p class="subline">Not a chatbot. An operating system for how governments and enterprises run on AI.</p>
+  <p class="subline" style="max-width:none;">Not a chatbot. An operating system for how governments and enterprises run on AI.</p>
   <div class="content">
-    <div class="zone" style="display:flex; gap:0; align-items:stretch; max-width:1500px; margin:0 auto; height:100%; max-height:560px;">
-      <!-- vertical spine: 4px brand gradient line + rotated label + connector ticks -->
+    <div class="zone" style="display:flex; gap:0; align-items:stretch; max-width:1560px; margin:0 auto; height:100%;">
       <div style="position:relative; width:120px; flex:0 0 auto; display:flex; align-items:center; justify-content:center;">
-        <div style="position:absolute; top:0; bottom:0; left:50%; width:4px; transform:translateX(-50%); border-radius:2px; background:linear-gradient(180deg, rgba(139,92,246,0) 0%, var(--brand) 14%, var(--brand) 86%, rgba(139,92,246,0) 100%);"></div>
+        <div style="position:absolute; top:0; bottom:0; left:50%; width:4px; transform:translateX(-50%); border-radius:2px; background:linear-gradient(180deg, rgba(139,92,246,0) 0%, var(--brand) 12%, var(--brand) 88%, rgba(139,92,246,0) 100%);"></div>
         <span style="position:relative; writing-mode:vertical-rl; transform:rotate(180deg); font-size:16px; font-weight:500; letter-spacing:4px; text-transform:uppercase; color:var(--violet-soft); background:var(--bg-dark); padding:18px 0;">NOCTIVE ENGINE</span>
       </div>
-      <div style="flex:1; display:flex; flex-direction:column; justify-content:space-between; gap:24px;">
-        <div style="display:flex; align-items:center; flex:1;">
+      <div style="flex:1; display:flex; flex-direction:column; justify-content:center; gap:24px;">
+        <div style="display:flex; align-items:center;">
           <div style="width:56px; height:2px; background:var(--brand); opacity:0.6; flex:0 0 auto;"></div>
-          <div class="layerbar" style="flex:1; height:100%; display:flex; align-items:center; gap:24px; font-size:24px; border-left:4px solid var(--brand);">
-            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="var(--brand)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M6 8a4 4 0 0 1 4-4h16a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H16l-7 7v-7h0a4 4 0 0 1-3-4z"/></svg>
+          <div class="layerbar" style="flex:1; height:110px; display:flex; align-items:center; gap:26px; font-size:24px; border-left:4px solid var(--brand);">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="var(--violet-soft)" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><rect x="2" y="3" width="24" height="17" rx="6"/><path d="M9 20 L9 26 L15 20"/></svg>
             <span>OPERATIONAL LAYER — Noctive Assistant</span>
           </div>
         </div>
-        <div style="display:flex; align-items:center; flex:1;">
+        <div style="display:flex; align-items:center;">
           <div style="width:56px; height:2px; background:var(--brand); opacity:0.6; flex:0 0 auto;"></div>
-          <div class="layerbar" style="flex:1; height:100%; display:flex; align-items:center; gap:24px; font-size:24px; border-left:4px solid var(--violet-strong);">
-            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="var(--violet-strong)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M18 3l12 5v9c0 8-5.5 13.5-12 16-6.5-2.5-12-8-12-16V8z"/></svg>
+          <div class="layerbar" style="flex:1; height:110px; display:flex; align-items:center; gap:26px; font-size:24px; border-left:4px solid var(--violet-strong);">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="var(--violet-soft)" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M14,2 L24,6 V14 C24,20 19,24 14,26 C9,24 4,20 4,14 V6 Z"/></svg>
             <span>DEFENSE LAYER — Noctive Walküre</span>
           </div>
         </div>
-        <div style="display:flex; align-items:center; flex:1;">
+        <div style="display:flex; align-items:center;">
           <div style="width:56px; height:2px; background:var(--brand); opacity:0.6; flex:0 0 auto;"></div>
-          <div class="layerbar" style="flex:1; height:100%; display:flex; align-items:center; gap:24px; font-size:24px; border-left:4px solid var(--violet-soft);">
-            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="var(--violet-soft)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M12 3c9 6.5 9 9.5 0 15 9 5.5 9 8.5 0 15"/><path d="M24 3c-9 6.5-9 9.5 0 15-9 5.5-9 8.5 0 15"/><line x1="13" y1="10" x2="23" y2="10"/><line x1="13" y1="26" x2="23" y2="26"/></svg>
+          <div class="layerbar" style="flex:1; height:110px; display:flex; align-items:center; gap:26px; font-size:24px; border-left:4px solid var(--violet-soft);">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="var(--violet-soft)" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M10,2 C20,9 20,19 10,26"/><path d="M18,2 C8,9 8,19 18,26"/><line x1="11.7" y1="9" x2="16.3" y2="9"/><line x1="10.5" y1="14" x2="17.5" y2="14"/><line x1="11.7" y1="19" x2="16.3" y2="19"/></svg>
             <span>FRONTIER / LIFE-SCIENCES LAYER — Noctive Research</span>
           </div>
         </div>
-        <div style="display:flex; align-items:center; flex:1;">
+        <div style="display:flex; align-items:center;">
           <div style="width:56px; height:2px; background:var(--brand); opacity:0.6; flex:0 0 auto;"></div>
-          <div class="layerbar" style="flex:1; height:100%; display:flex; align-items:center; gap:24px; font-size:24px; border-left:4px solid var(--text-dim);">
-            <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="var(--text-dim)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M30 10a8 8 0 0 1-10.5 9.5L10 29a3.5 3.5 0 0 1-5-5l9.5-9.5A8 8 0 0 1 24 4l-4.5 4.5 1.2 5.8 5.8 1.2z"/></svg>
+          <div class="layerbar" style="flex:1; height:110px; display:flex; align-items:center; gap:26px; font-size:24px; border-left:4px solid var(--text-dim);">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="var(--violet-soft)" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true"><path d="M14,3 L23.5,8.5 V19.5 L14,25 L4.5,19.5 V8.5 Z"/><circle cx="14" cy="14" r="4.5"/></svg>
             <span>EXECUTION ARM — Noctive Studio</span>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="sfooter"><span>NOCTIVE — CONFIDENTIAL</span><span class="fr"><img src="./assets/noctive-icon-mini.svg" alt=""><span>03 / 17</span></span></div>
+  <div class="sfooter"><span>NOCTIVE — CONFIDENTIAL</span><span class="fr"><img src="./assets/noctive-icon-mini.svg" alt=""><span>02 / 16</span></span></div>
   <aside class="notes">Own the OS, own the capability. We sell sovereignty, not a subscription to someone else's cloud.</aside>
 </section>
 
-<!-- ================================================================ SLIDE 04 · LIGHT (CONSTELLATION) · ECOSYSTEM -->
+<!-- ================================================================ SLIDE 03 · LIGHT (CONSTELLATION) · ECOSYSTEM -->
 <section class="light" data-background-gradient="radial-gradient(120% 130% at 0% 0%, #FFFFFF 0%, #F7F7FB 62%)">
-  <svg class="bg-accent" style="top:40px; right:80px;" width="420" height="220" viewBox="0 0 420 220" aria-hidden="true">
-    <polyline points="20,160 110,60 220,120 300,30 400,90" fill="none" stroke="var(--violet-soft)" stroke-opacity="0.25" stroke-width="1"/>
-    <circle cx="20" cy="160" r="2.5" fill="var(--violet-soft)" fill-opacity="0.6"/>
-    <circle cx="110" cy="60" r="3" fill="var(--violet-soft)" fill-opacity="0.6"/>
-    <circle cx="220" cy="120" r="2" fill="var(--violet-soft)" fill-opacity="0.6"/>
-    <circle cx="300" cy="30" r="3" fill="var(--violet-soft)" fill-opacity="0.6"/>
-    <circle cx="400" cy="90" r="2.5" fill="var(--violet-soft)" fill-opacity="0.6"/>
+  <svg class="bg-accent" style="top:40px; right:80px;" width="420" height="180" viewBox="0 0 420 180" aria-hidden="true">
+    <polyline points="20,140 110,50 220,105 300,25 400,80" fill="none" stroke="var(--violet-soft)" stroke-opacity="0.25" stroke-width="1"/>
+    <circle cx="20" cy="140" r="2.5" fill="var(--violet-soft)" fill-opacity="0.6"/>
+    <circle cx="110" cy="50" r="3" fill="var(--violet-soft)" fill-opacity="0.6"/>
+    <circle cx="220" cy="105" r="2" fill="var(--violet-soft)" fill-opacity="0.6"/>
+    <circle cx="300" cy="25" r="3" fill="var(--violet-soft)" fill-opacity="0.6"/>
+    <circle cx="400" cy="80" r="2.5" fill="var(--violet-soft)" fill-opacity="0.6"/>
   </svg>
-  <div class="kicker">04 · THE ECOSYSTEM</div>
+  <div class="kicker">03 · THE ECOSYSTEM</div>
   <h1>Assistant, Walküre, Research, Studio —<br>layers of one system.</h1>
   <p class="subline">Each layer is a product. Together they are a platform.</p>
   <div class="content">
-    <div class="zone" style="position:relative; max-width:1792px; margin:0 auto; height:100%; max-height:540px;">
-      <svg style="position:absolute; inset:0;" width="100%" height="100%" viewBox="0 0 1792 540" preserveAspectRatio="none" aria-hidden="true">
-        <line x1="500" y1="130" x2="810" y2="250" stroke="var(--brand)" stroke-opacity="0.45" stroke-width="1.5"/>
-        <line x1="1292" y1="130" x2="982" y2="250" stroke="var(--brand)" stroke-opacity="0.45" stroke-width="1.5"/>
-        <line x1="500" y1="410" x2="810" y2="290" stroke="var(--brand)" stroke-opacity="0.45" stroke-width="1.5"/>
-        <line x1="1292" y1="410" x2="982" y2="290" stroke="var(--brand)" stroke-opacity="0.45" stroke-width="1.5"/>
-        <circle cx="500" cy="130" r="3.5" fill="var(--brand)" fill-opacity="0.6"/>
-        <circle cx="1292" cy="130" r="3.5" fill="var(--brand)" fill-opacity="0.6"/>
-        <circle cx="500" cy="410" r="3.5" fill="var(--brand)" fill-opacity="0.6"/>
-        <circle cx="1292" cy="410" r="3.5" fill="var(--brand)" fill-opacity="0.6"/>
+    <div class="zone" style="position:relative; height:100%; max-height:540px;">
+      <!-- connector layer BEHIND the grid -->
+      <svg style="position:absolute; inset:0; z-index:0; pointer-events:none; width:100%; height:100%;" viewBox="0 0 1792 540" preserveAspectRatio="none" aria-hidden="true">
+        <line x1="836" y1="235" x2="620" y2="130" stroke="var(--brand)" stroke-opacity="0.45" stroke-width="1.5"/>
+        <line x1="956" y1="235" x2="1172" y2="130" stroke="var(--brand)" stroke-opacity="0.45" stroke-width="1.5"/>
+        <line x1="836" y1="305" x2="620" y2="410" stroke="var(--brand)" stroke-opacity="0.45" stroke-width="1.5"/>
+        <line x1="956" y1="305" x2="1172" y2="410" stroke="var(--brand)" stroke-opacity="0.45" stroke-width="1.5"/>
       </svg>
-      <div class="card" style="position:absolute; left:0; top:0; width:660px; min-height:190px; display:flex; align-items:center; padding:32px 38px;">
-        <div class="body-copy" style="font-size:22px; line-height:1.45;"><span style="font-weight:600; color:var(--violet-strong);">ASSISTANT</span> — operational layer (live).</div>
-      </div>
-      <div class="card" style="position:absolute; right:0; top:0; width:660px; min-height:190px; display:flex; align-items:center; padding:32px 38px;">
-        <div class="body-copy" style="font-size:22px; line-height:1.45;"><span style="font-weight:600; color:var(--violet-strong);">WALKÜRE</span> — adaptive AI cyber-defense: detects AI-swarm patterns &lt;50 ms, redirects attackers into honeypots, degrades attacker code; trained on live production traffic; six documented swarm classes.</div>
-      </div>
-      <div class="card" style="position:absolute; left:0; bottom:0; width:660px; min-height:190px; display:flex; align-items:center; padding:32px 38px;">
-        <div class="body-copy" style="font-size:22px; line-height:1.45;"><span style="font-weight:600; color:var(--violet-strong);">RESEARCH</span> — frontier &amp; life sciences ("the next platform").</div>
-      </div>
-      <div class="card" style="position:absolute; right:0; bottom:0; width:660px; min-height:190px; display:flex; align-items:center; padding:32px 38px;">
-        <div class="body-copy" style="font-size:22px; line-height:1.45;"><span style="font-weight:600; color:var(--violet-strong);">STUDIO</span> — execution / delivery arm.</div>
-      </div>
-      <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:180px; height:180px; border-radius:50%; border:1.5px solid var(--brand); box-shadow:0 0 48px rgba(139,92,246,0.3); background:var(--card-light); display:flex; align-items:center; justify-content:center; text-align:center;">
-        <span class="caption" style="color:var(--violet-strong); font-size:16px;">NOCTIVE<br>ENGINE</span>
+      <div style="position:relative; z-index:1; display:grid; grid-template-columns:1fr 0.9fr 1fr; gap:24px; height:100%;">
+        <div style="display:flex; flex-direction:column; justify-content:space-between; gap:24px;">
+          <div class="card" style="min-height:150px; display:flex; align-items:center; padding:32px 38px;">
+            <div class="body-copy" style="font-size:22px; line-height:1.45;"><span style="font-weight:600; color:var(--violet-strong);">ASSISTANT</span> — operational layer (live).</div>
+          </div>
+          <div class="card" style="min-height:150px; display:flex; align-items:center; padding:32px 38px;">
+            <div class="body-copy" style="font-size:22px; line-height:1.45;"><span style="font-weight:600; color:var(--violet-strong);">RESEARCH</span> — frontier &amp; life sciences ("the next platform").</div>
+          </div>
+        </div>
+        <div style="display:flex; align-items:center; justify-content:center;">
+          <div style="width:200px; height:200px; border-radius:50%; border:1.5px solid var(--brand); box-shadow:0 0 48px rgba(139,92,246,0.3); background:var(--card-light); display:flex; align-items:center; justify-content:center; text-align:center;">
+            <span class="caption" style="color:var(--violet-strong); font-size:16px;">NOCTIVE<br>ENGINE</span>
+          </div>
+        </div>
+        <div style="display:flex; flex-direction:column; justify-content:space-between; gap:24px;">
+          <div class="card" style="min-height:150px; display:flex; align-items:center; padding:32px 38px;">
+            <div class="body-copy" style="font-size:22px; line-height:1.45;"><span style="font-weight:600; color:var(--violet-strong);">WALKÜRE</span> — adaptive AI cyber-defense: detects AI-swarm patterns &lt;50 ms, redirects attackers into honeypots, degrades attacker code; trained on live production traffic; six documented swarm classes.</div>
+          </div>
+          <div class="card" style="min-height:150px; display:flex; align-items:center; padding:32px 38px;">
+            <div class="body-copy" style="font-size:22px; line-height:1.45;"><span style="font-weight:600; color:var(--violet-strong);">STUDIO</span> — execution / delivery arm.</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  <div class="sfooter"><span>NOCTIVE — CONFIDENTIAL</span><span class="fr"><img src="./assets/noctive-icon-mini.svg" alt=""><span>04 / 17</span></span></div>
+  <div class="sfooter"><span>NOCTIVE — CONFIDENTIAL</span><span class="fr"><img src="./assets/noctive-icon-mini.svg" alt=""><span>03 / 16</span></span></div>
   <aside class="notes">One engine underneath all four. That engine — and the sovereignty around it — is the moat.</aside>
 </section>
 
-<!-- ================================================================ SLIDE 05 · DARK · TODAY -->
+<!-- ================================================================ SLIDE 04 · DARK · TODAY -->
 <section class="dark" data-background-gradient="radial-gradient(120% 130% at 0% 0%, #1A1430 0%, #0B0A1A 62%)">
-  <div class="kicker">05 · TODAY — NOT A PITCH-DECK PROMISE</div>
+  <div class="kicker">04 · TODAY — NOT A PITCH-DECK PROMISE</div>
   <h1>The operational layer is live and in the hands of real customers.</h1>
   <p class="subline">Assistant in production since 29 May 2026, running on our own GPU hardware in Germany.</p>
   <div class="content">
-    <div class="zone" style="display:flex; flex-direction:column; gap:32px;">
-      <!-- hero: six proof chips, two rows -->
-      <div style="display:flex; flex-wrap:wrap; gap:18px; max-width:1720px;">
+    <div class="zone" style="display:flex; flex-direction:column; gap:28px; height:100%; max-height:640px;">
+      <div style="display:flex; flex-wrap:wrap; gap:18px;">
         <span class="chip xl upper">ASSISTANT LIVE SINCE 29 MAY 2026</span>
         <span class="chip xl upper">387 MS P50 LATENCY</span>
         <span class="chip xl upper">OWN GPU HARDWARE — HETZNER NÜRNBERG</span>
@@ -390,37 +346,53 @@ svg text{ font-family:'Inter',sans-serif; font-feature-settings:"tnum" 1; }
         <span class="chip xl upper">NO US HYPERSCALER — NO CLOUD ACT EXPOSURE</span>
         <span class="chip xl upper">16 CUSTOMERS IN A STRUCTURED MARKET-VALIDATION PROGRAM</span>
       </div>
-      <div class="row" style="align-items:stretch;">
-        <div class="col" style="flex:1; gap:24px; justify-content:center;">
-          <span class="badge live" style="align-self:flex-start;"><span class="dot"></span>LIVE</span>
-          <div class="caption-raw" style="color:var(--text-dim);">converting to paid contracts at test-phase end</div>
+      <div class="row" style="flex:1; align-items:stretch;">
+        <div class="col" style="flex:1; gap:20px; justify-content:center;">
+          <div>
+            <span class="badge live"><span class="dot"></span>LIVE</span>
+            <div class="caption-raw" style="color:var(--text-dim); margin-top:12px;">converting to paid contracts at test-phase end</div>
+          </div>
           <div class="confirm-box">
             <span class="confirm-label">TO CONFIRM</span>
             [FOUNDERS TO CONFIRM: current conversion/payment status and signed commitments]
           </div>
+          <div class="card" style="display:flex; align-items:center; padding:28px 8px;">
+            <div class="mini-tile">
+              <div class="num">29 MAY 2026</div>
+              <div class="lbl">LIVE</div>
+            </div>
+            <div class="mini-tile">
+              <div class="num">387 MS</div>
+              <div class="lbl">P50</div>
+            </div>
+            <div class="mini-tile">
+              <div class="num">16</div>
+              <div class="lbl">CUSTOMERS</div>
+            </div>
+          </div>
         </div>
         <!-- 16:10 mockup frame with browser-chrome bar -->
-        <div style="flex:0 0 45%; border:1px solid var(--line); border-radius:16px; overflow:hidden; background:var(--bg-dark-2); display:flex; flex-direction:column; aspect-ratio:16/10; max-height:420px;">
+        <div style="flex:0 0 52%; border:1px solid var(--line); border-radius:16px; overflow:hidden; background:var(--bg-dark-2); display:flex; flex-direction:column;">
           <div style="height:38px; flex:0 0 auto; background:rgba(139,92,246,0.08); border-bottom:1px solid var(--line); display:flex; align-items:center; gap:8px; padding:0 16px;">
             <span style="width:10px; height:10px; border-radius:50%; background:var(--line); display:block;"></span>
             <span style="width:10px; height:10px; border-radius:50%; background:var(--line); display:block;"></span>
             <span style="width:10px; height:10px; border-radius:50%; background:var(--line); display:block;"></span>
             <span style="flex:1; height:16px; margin-left:12px; border-radius:8px; background:rgba(139,92,246,0.06);"></span>
           </div>
-          <div style="flex:1; display:flex; align-items:center; justify-content:center; border:2px dashed var(--line); border-top:none; margin:0; border-radius:0 0 16px 16px;">
+          <div style="flex:1; display:flex; align-items:center; justify-content:center; border:2px dashed var(--line); border-top:none; border-radius:0 0 16px 16px;">
             <span class="caption" style="color:var(--text-dim);">PRODUCT SCREENSHOT — INSERT</span>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="sfooter"><span>NOCTIVE — CONFIDENTIAL</span><span class="fr"><img src="./assets/noctive-icon-mini.svg" alt=""><span>05 / 17</span></span></div>
+  <div class="sfooter"><span>NOCTIVE — CONFIDENTIAL</span><span class="fr"><img src="./assets/noctive-icon-mini.svg" alt=""><span>04 / 16</span></span></div>
   <aside class="notes">Everything on this slide is real today. We run our own GPUs in Nürnberg — no Azure, no AWS, no Cloud Act exposure. 387ms p50. Sixteen customers already using it in a structured validation program.</aside>
 </section>
 
-<!-- ================================================================ SLIDE 06 · DARK · ENGINE & MOAT -->
+<!-- ================================================================ SLIDE 05 · DARK · ENGINE & MOAT -->
 <section class="dark" data-background-gradient="radial-gradient(120% 130% at 0% 0%, #1A1430 0%, #0B0A1A 62%)">
-  <div class="kicker">06 · THE MOAT</div>
+  <div class="kicker">05 · THE MOAT</div>
   <h1>The value is the engine and the sovereignty — not the base model.</h1>
   <p class="subline" style="max-width:74%;">Proprietary orchestration on swappable open-weight base models — and for Enterprise, your own dedicated model.</p>
   <div class="content">
@@ -438,7 +410,7 @@ svg text{ font-family:'Inter',sans-serif; font-feature-settings:"tnum" 1; }
         </div>
       </div>
       <div class="col" style="flex:1; gap:18px;">
-        <div class="card" style="border:1px solid var(--brand); box-shadow:0 0 28px rgba(139,92,246,0.25); flex:1; display:flex; align-items:center;">
+        <div class="card" style="border:1px solid var(--brand); box-shadow:0 0 28px rgba(139,92,246,0.25); flex:1;">
           <div class="body-copy" style="font-size:20px; line-height:1.45;">For Enterprise, Noctive builds a dedicated ~7B-parameter model per customer, finetuned exclusively on that customer's data (scope defined in pre-engagement consultations). The model is handed over and runs on the customer's own servers. Noctive retains no access to customer data. The platform connects only via an encrypted API for compute burst and scheduled improvement sessions. Modular Baukasten: unlimited agent assembly. Walküre security included in Enterprise.</div>
         </div>
         <div style="display:flex; align-items:center; gap:14px; padding-left:6px;">
@@ -452,13 +424,13 @@ svg text{ font-family:'Inter',sans-serif; font-feature-settings:"tnum" 1; }
       </div>
     </div>
   </div>
-  <div class="sfooter"><span>NOCTIVE — CONFIDENTIAL</span><span class="fr"><img src="./assets/noctive-icon-mini.svg" alt=""><span>06 / 17</span></span></div>
+  <div class="sfooter"><span>NOCTIVE — CONFIDENTIAL</span><span class="fr"><img src="./assets/noctive-icon-mini.svg" alt=""><span>05 / 16</span></span></div>
   <aside class="notes">This is what makes us not a wrapper. Every Enterprise customer gets their own finetuned 7B model, running on their own hardware. We keep no access to their data — we connect only for compute burst and scheduled improvements. That's more sovereign than PhariaAI or Cohere North, both of which are custom-quoted enterprise deals. The base model is swappable; the engine and the sovereignty are ours.</aside>
 </section>
 
-<!-- ================================================================ SLIDE 07 · LIGHT · SOVEREIGNTY -->
+<!-- ================================================================ SLIDE 06 · LIGHT · SOVEREIGNTY -->
 <section class="light" data-background-gradient="radial-gradient(120% 130% at 0% 0%, #FFFFFF 0%, #F7F7FB 62%)">
-  <div class="kicker">07 · SOVEREIGNTY BY DESIGN</div>
+  <div class="kicker">06 · SOVEREIGNTY BY DESIGN</div>
   <h1>Built to survive government and regulated-industry diligence.</h1>
   <p class="subline">We market nothing as certified that is not yet certified.</p>
   <div class="content">
@@ -497,13 +469,13 @@ svg text{ font-family:'Inter',sans-serif; font-feature-settings:"tnum" 1; }
       </div>
     </div>
   </div>
-  <div class="sfooter"><span>NOCTIVE — CONFIDENTIAL</span><span class="fr"><img src="./assets/noctive-icon-mini.svg" alt=""><span>07 / 17</span></span></div>
+  <div class="sfooter"><span>NOCTIVE — CONFIDENTIAL</span><span class="fr"><img src="./assets/noctive-icon-mini.svg" alt=""><span>06 / 16</span></span></div>
   <aside class="notes">Honesty is a feature here. Certifications are scheduled Q3/Q4 2026 — we say scheduled, not held. The air-gapped variant is in development. On the AI Act: high-risk obligations are dated 2 August 2026, though the Digital Omnibus signed 8 July 2026 may defer stand-alone high-risk obligations to December 2027 — we treat August 2026 as operative and don't overstate urgency. This slide is designed to pass a ministry's procurement checklist.</aside>
 </section>
 
-<!-- ================================================================ SLIDE 08 · LIGHT · MARKET -->
+<!-- ================================================================ SLIDE 07 · LIGHT · MARKET -->
 <section class="light" data-background-gradient="radial-gradient(120% 130% at 0% 0%, #FFFFFF 0%, #F7F7FB 62%)">
-  <div class="kicker">08 · THE MARKET</div>
+  <div class="kicker">07 · THE MARKET</div>
   <h1>Two markets, one system: regulated Germany and the sovereign Gulf.</h1>
   <p class="subline">Bottom-up, not top-down.</p>
   <div class="content">
@@ -526,24 +498,25 @@ svg text{ font-family:'Inter',sans-serif; font-feature-settings:"tnum" 1; }
             [FOUNDERS TO CONFIRM: bottom-up TAM/SAM/SOM — target companies per vertical × seats × price, with calculation path]
           </div>
         </div>
-        <svg width="100%" height="190" viewBox="0 0 820 190" preserveAspectRatio="xMidYMid meet" style="flex:1; min-width:0;" aria-hidden="true">
-          <rect x="40" y="8" width="740" height="50" rx="25" fill="var(--brand)" fill-opacity="0.25"/>
-          <text x="410" y="40" text-anchor="middle" fill="var(--ink)" font-size="16" font-weight="500" letter-spacing="1.5">TARGET COMPANIES</text>
-          <rect x="150" y="68" width="520" height="50" rx="25" fill="var(--brand)" fill-opacity="0.5"/>
-          <text x="410" y="100" text-anchor="middle" fill="var(--ink)" font-size="16" font-weight="500" letter-spacing="1.5">× SEATS</text>
-          <rect x="260" y="128" width="300" height="50" rx="25" fill="var(--brand)" fill-opacity="0.85"/>
-          <text x="410" y="160" text-anchor="middle" fill="#FFFFFF" font-size="16" font-weight="500" letter-spacing="1.5">× PRICE</text>
+        <svg width="100%" height="196" viewBox="0 0 820 196" preserveAspectRatio="xMidYMid meet" style="flex:1; min-width:0;" aria-hidden="true">
+          <line x1="410" y1="4" x2="410" y2="192" stroke="var(--violet-strong)" stroke-opacity="0.35" stroke-width="1"/>
+          <rect x="20" y="8" width="780" height="52" rx="26" fill="var(--brand)" fill-opacity="0.25"/>
+          <text x="410" y="41" text-anchor="middle" fill="var(--ink)" font-size="16" font-weight="500" letter-spacing="1.5">TARGET COMPANIES</text>
+          <rect x="98" y="72" width="624" height="52" rx="26" fill="var(--brand)" fill-opacity="0.5"/>
+          <text x="410" y="105" text-anchor="middle" fill="var(--ink)" font-size="16" font-weight="500" letter-spacing="1.5">× SEATS</text>
+          <rect x="176" y="136" width="468" height="52" rx="26" fill="var(--brand)" fill-opacity="0.85"/>
+          <text x="410" y="169" text-anchor="middle" fill="#FFFFFF" font-size="16" font-weight="500" letter-spacing="1.5">× PRICE</text>
         </svg>
       </div>
     </div>
   </div>
-  <div class="sfooter"><span>NOCTIVE — CONFIDENTIAL</span><span class="fr"><img src="./assets/noctive-icon-mini.svg" alt=""><span>08 / 17</span></span></div>
+  <div class="sfooter"><span>NOCTIVE — CONFIDENTIAL</span><span class="fr"><img src="./assets/noctive-icon-mini.svg" alt=""><span>07 / 16</span></span></div>
   <aside class="notes">We size bottom-up. In Germany the regulatory tailwind — NIS2 expanding to ~29,500 entities and the AI Act — creates forced demand. In the Gulf, capital and national strategy create pull.</aside>
 </section>
 
-<!-- ================================================================ SLIDE 09 · DARK · BUSINESS MODEL -->
+<!-- ================================================================ SLIDE 08 · DARK · BUSINESS MODEL -->
 <section class="dark" data-background-gradient="radial-gradient(120% 130% at 0% 0%, #1A1430 0%, #0B0A1A 62%)">
-  <div class="kicker">09 · HOW WE MAKE MONEY</div>
+  <div class="kicker">08 · HOW WE MAKE MONEY</div>
   <h1>Modular subscriptions in Germany.<span class="l2">Your own sovereign AI at the top.</span></h1>
   <p class="subline">Three tiers, one engine, top-decile margins from own hardware.</p>
   <div class="content">
@@ -592,13 +565,13 @@ svg text{ font-family:'Inter',sans-serif; font-feature-settings:"tnum" 1; }
       </div>
     </div>
   </div>
-  <div class="sfooter"><span>NOCTIVE — CONFIDENTIAL</span><span class="fr"><img src="./assets/noctive-icon-mini.svg" alt=""><span>09 / 17</span></span></div>
+  <div class="sfooter"><span>NOCTIVE — CONFIDENTIAL</span><span class="fr"><img src="./assets/noctive-icon-mini.svg" alt=""><span>08 / 16</span></span></div>
   <aside class="notes">Three modular tiers. The 92% margin is not a typical AI number — a16z found most AI apps sit at 50–60% because they pay for inference. Ours is higher because Enterprise runs on the customer's own hardware. We label the basis, because a sophisticated investor will rightly probe whether such a high margin reflects genuine AI usage.</aside>
 </section>
 
-<!-- ================================================================ SLIDE 10 · LIGHT · GO-TO-MARKET -->
+<!-- ================================================================ SLIDE 09 · LIGHT · GO-TO-MARKET -->
 <section class="light" data-background-gradient="radial-gradient(120% 130% at 0% 0%, #FFFFFF 0%, #F7F7FB 62%)">
-  <div class="kicker">10 · DISTRIBUTION</div>
+  <div class="kicker">09 · DISTRIBUTION</div>
   <h1>We never do direct sales in Germany. The channel does.</h1>
   <p class="subline">Channel-native in Germany, partner-native in the Gulf.</p>
   <div class="content">
@@ -636,13 +609,13 @@ svg text{ font-family:'Inter',sans-serif; font-feature-settings:"tnum" 1; }
       </div>
     </div>
   </div>
-  <div class="sfooter"><span>NOCTIVE — CONFIDENTIAL</span><span class="fr"><img src="./assets/noctive-icon-mini.svg" alt=""><span>10 / 17</span></span></div>
+  <div class="sfooter"><span>NOCTIVE — CONFIDENTIAL</span><span class="fr"><img src="./assets/noctive-icon-mini.svg" alt=""><span>09 / 16</span></span></div>
   <aside class="notes">We're a development company, not a sales org. German SMEs buy IT through their Systemhaus — so we sell through the Systemhaus. It's capital-efficient: we scale without a sales army. Two houses are in advanced talks now. The same partner-led logic is exactly how you enter the Gulf — this is why our German model and our Gulf model are the same shape.</aside>
 </section>
 
-<!-- ================================================================ SLIDE 11 · DARK · TRACTION -->
+<!-- ================================================================ SLIDE 10 · DARK · TRACTION -->
 <section class="dark" data-background-gradient="radial-gradient(120% 130% at 0% 0%, #1A1430 0%, #0B0A1A 62%)">
-  <div class="kicker">11 · TRACTION</div>
+  <div class="kicker">10 · TRACTION</div>
   <h1>16 customers, validated, converting to paid.</h1>
   <p class="subline">A structured, scientifically designed market-validation program — not a waitlist.</p>
   <div class="content">
@@ -650,29 +623,23 @@ svg text{ font-family:'Inter',sans-serif; font-feature-settings:"tnum" 1; }
       <p class="body-copy" style="margin:0; max-width:1200px; font-size:22px;">16 pilot customers in a structured market-validation program, converting to paid contracts at test-phase end.</p>
       <div class="card" style="padding:32px 40px;">
         <svg width="100%" height="420" viewBox="0 0 1680 420" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-          <!-- gate labels ABOVE the chart area, small caps -->
           <text x="774" y="24" text-anchor="middle" fill="var(--violet-soft)" font-size="16" font-weight="500" letter-spacing="1.5" style="font-variant:small-caps;">€300–500k</text>
           <text x="1290" y="24" text-anchor="middle" fill="var(--violet-soft)" font-size="16" font-weight="500" letter-spacing="1.5" style="font-variant:small-caps;">€1M</text>
-          <!-- gate band €300–500k and gate line €1M ; scale: €1k = 0.86px from x=430 -->
           <rect x="688" y="40" width="172" height="360" fill="rgba(139,92,246,0.09)"/>
           <line x1="688" y1="40" x2="688" y2="400" stroke="var(--brand)" stroke-width="1" stroke-dasharray="5 5" stroke-opacity="0.6"/>
           <line x1="860" y1="40" x2="860" y2="400" stroke="var(--brand)" stroke-width="1" stroke-dasharray="5 5" stroke-opacity="0.6"/>
           <line x1="1290" y1="40" x2="1290" y2="400" stroke="var(--brand)" stroke-width="1.4" stroke-dasharray="5 5"/>
           <line x1="430" y1="40" x2="430" y2="400" stroke="var(--line)" stroke-width="1"/>
-          <!-- FLOOR ~286k -->
           <text x="412" y="93" text-anchor="end" fill="var(--text-dim)" font-size="16" font-weight="500" letter-spacing="1.5">FLOOR (all Growth)</text>
           <rect x="431" y="66" width="246" height="44" rx="4" fill="rgba(183,148,244,0.45)"/>
           <text x="691" y="95" fill="var(--text-light)" font-size="22" font-weight="600">~€286k</text>
-          <!-- CONSERVATIVE 472–514k -->
           <text x="412" y="185" text-anchor="end" fill="var(--text-dim)" font-size="16" font-weight="500" letter-spacing="1.5">CONSERVATIVE BLEND</text>
           <rect x="431" y="158" width="406" height="44" rx="4" fill="rgba(183,148,244,0.45)"/>
           <rect x="837" y="158" width="36" height="44" rx="4" fill="rgba(183,148,244,0.2)"/>
           <text x="887" y="187" fill="var(--text-light)" font-size="22" font-weight="600">~€472–514k</text>
-          <!-- BALANCED 802k -->
           <text x="412" y="277" text-anchor="end" fill="var(--text-dim)" font-size="16" font-weight="500" letter-spacing="1.5">BALANCED</text>
           <rect x="431" y="250" width="690" height="44" rx="4" fill="rgba(139,92,246,0.65)"/>
           <text x="1135" y="279" fill="var(--text-light)" font-size="22" font-weight="600">~€802k</text>
-          <!-- UPSIDE >1.15M -->
           <text x="412" y="369" text-anchor="end" fill="var(--text-dim)" font-size="16" font-weight="500" letter-spacing="1.5">SCALE/ENTERPRISE-WEIGHTED UPSIDE</text>
           <rect x="431" y="342" width="989" height="44" rx="4" fill="var(--brand)"/>
           <text x="1434" y="371" fill="var(--text-light)" font-size="22" font-weight="600">&gt;€1.15M</text>
@@ -685,20 +652,20 @@ svg text{ font-family:'Inter',sans-serif; font-feature-settings:"tnum" 1; }
       </div>
     </div>
   </div>
-  <div class="sfooter"><span>NOCTIVE — CONFIDENTIAL</span><span class="fr"><img src="./assets/noctive-icon-mini.svg" alt=""><span>11 / 17</span></span></div>
+  <div class="sfooter"><span>NOCTIVE — CONFIDENTIAL</span><span class="fr"><img src="./assets/noctive-icon-mini.svg" alt=""><span>10 / 16</span></span></div>
   <aside class="notes">Sixteen customers, chosen through a structured validation program, converting to paid at the end of the test phase. Depending on tier mix, that's roughly €300–500k on a conservative blend and north of €1M if the Scale and Enterprise tiers land. We'll confirm exact signed status in diligence.</aside>
 </section>
 
-<!-- ================================================================ SLIDE 12 · DARK · RESEARCH -->
+<!-- ================================================================ SLIDE 11 · DARK · RESEARCH -->
 <section class="dark" data-background-gradient="radial-gradient(120% 130% at 0% 0%, #1A1430 0%, #0B0A1A 62%)">
-  <div class="kicker">12 · THE NEXT PLATFORM</div>
+  <div class="kicker">11 · THE NEXT PLATFORM</div>
   <h1>AI for life sciences —<span class="l2">built for the UAE's genomics ambition.</span></h1>
   <p class="subline">The frontier layer, aligned to national priorities.</p>
   <div class="content">
-    <div class="zone row" style="align-items:center;">
-      <div class="col" style="flex:0 0 55%; gap:26px;">
-        <div class="card" style="padding:36px 42px;">
-          <div class="body-copy" style="font-size:22px; line-height:1.6;">Emirati Genome Programme — 815,000 samples announced at Abu Dhabi Global Health Week (April 2025), up from 600,000, run by Abu Dhabi Dept. of Health with M42, targeting ~1M citizens. M42 + Juvenescence Abu Dhabi drug-development hub. Dubai Health genomic medicine. Noctive Research positioned as the AI layer for this data.</div>
+    <div class="zone row" style="align-items:center; height:100%; max-height:620px;">
+      <div class="col" style="flex:0 0 60%; gap:26px; justify-content:center;">
+        <div class="card" style="padding:38px 44px;">
+          <div class="body-copy" style="font-size:24px; line-height:1.55;">Emirati Genome Programme — 815,000 samples announced at Abu Dhabi Global Health Week (April 2025), up from 600,000, run by Abu Dhabi Dept. of Health with M42, targeting ~1M citizens. M42 + Juvenescence Abu Dhabi drug-development hub. Dubai Health genomic medicine. Noctive Research positioned as the AI layer for this data.</div>
         </div>
         <div style="display:flex; gap:16px;">
           <span class="chip lg">EGP</span>
@@ -707,85 +674,83 @@ svg text{ font-family:'Inter',sans-serif; font-feature-settings:"tnum" 1; }
         </div>
         <span class="badge plan" style="align-self:flex-start;"><span class="dot"></span>ROADMAP / PHASE 2</span>
       </div>
-      <div style="flex:1; display:flex; justify-content:center;">
-        <!-- double helix, dissolving into constellation at the top -->
-        <svg width="480" height="540" viewBox="0 0 480 540" aria-hidden="true">
-          <!-- constellation dissolve (top) -->
-          <polyline points="216,130 260,96 320,110 372,62 424,84" fill="none" stroke="var(--violet-soft)" stroke-opacity="0.25" stroke-width="1"/>
-          <circle cx="216" cy="130" r="3" fill="var(--violet-soft)" fill-opacity="0.8"/>
-          <circle cx="260" cy="96" r="2.5" fill="var(--violet-soft)" fill-opacity="0.7"/>
-          <circle cx="320" cy="110" r="3" fill="var(--brand)" fill-opacity="0.8"/>
-          <circle cx="372" cy="62" r="2.5" fill="var(--violet-soft)" fill-opacity="0.7"/>
-          <circle cx="424" cy="84" r="3" fill="var(--brand)" fill-opacity="0.7"/>
+      <div style="flex:1; display:flex; justify-content:center; align-items:center; height:100%;">
+        <!-- clean double helix: strands 2px, rungs anchored on the sine paths -->
+        <svg width="480" height="600" viewBox="0 0 480 620" aria-hidden="true">
+          <!-- rungs (endpoints on the strand curves) -->
+          <line x1="199" y1="509" x2="281" y2="509" stroke="var(--line)" stroke-opacity="0.6" stroke-width="1"/>
+          <line x1="211" y1="489" x2="269" y2="489" stroke="var(--line)" stroke-opacity="0.6" stroke-width="1"/>
+          <line x1="199" y1="428" x2="281" y2="428" stroke="var(--line)" stroke-opacity="0.6" stroke-width="1"/>
+          <line x1="211" y1="448" x2="269" y2="448" stroke="var(--line)" stroke-opacity="0.6" stroke-width="1"/>
+          <line x1="199" y1="348" x2="281" y2="348" stroke="var(--line)" stroke-opacity="0.6" stroke-width="1"/>
+          <line x1="199" y1="268" x2="281" y2="268" stroke="var(--line)" stroke-opacity="0.6" stroke-width="1"/>
+          <line x1="211" y1="288" x2="269" y2="288" stroke="var(--line)" stroke-opacity="0.6" stroke-width="1"/>
+          <line x1="199" y1="188" x2="281" y2="188" stroke="var(--line)" stroke-opacity="0.6" stroke-width="1"/>
+          <line x1="211" y1="168" x2="269" y2="168" stroke="var(--line)" stroke-opacity="0.6" stroke-width="1"/>
+          <line x1="199" y1="108" x2="281" y2="108" stroke="var(--line)" stroke-opacity="0.6" stroke-width="1"/>
           <!-- strand A -->
-          <path d="M210,520 C265,500 265,460 210,440 C155,420 155,380 210,360 C265,340 265,300 210,280 C155,260 155,220 210,200 C240,189 252,172 248,152" fill="none" stroke="var(--violet-soft)" stroke-width="1.5"/>
+          <path d="M240,550 C295,528 295,488 240,468 C185,448 185,408 240,388 C295,368 295,328 240,308 C185,288 185,248 240,228 C295,208 295,168 240,148 C185,128 185,88 240,68" fill="none" stroke="var(--brand)" stroke-width="2"/>
           <!-- strand B -->
-          <path d="M210,520 C155,500 155,460 210,440 C265,420 265,380 210,360 C155,340 155,300 210,280 C265,260 265,220 210,200 C180,189 168,172 172,152" fill="none" stroke="var(--brand)" stroke-width="1.5"/>
-          <!-- rungs -->
-          <line x1="169" y1="480" x2="251" y2="480" stroke="var(--violet-soft)" stroke-opacity="0.35" stroke-width="1"/>
-          <line x1="181" y1="460" x2="239" y2="460" stroke="var(--violet-soft)" stroke-opacity="0.35" stroke-width="1"/>
-          <line x1="169" y1="400" x2="251" y2="400" stroke="var(--violet-soft)" stroke-opacity="0.35" stroke-width="1"/>
-          <line x1="181" y1="380" x2="239" y2="380" stroke="var(--violet-soft)" stroke-opacity="0.35" stroke-width="1"/>
-          <line x1="169" y1="320" x2="251" y2="320" stroke="var(--violet-soft)" stroke-opacity="0.35" stroke-width="1"/>
-          <line x1="181" y1="300" x2="239" y2="300" stroke="var(--violet-soft)" stroke-opacity="0.35" stroke-width="1"/>
-          <line x1="169" y1="240" x2="251" y2="240" stroke="var(--violet-soft)" stroke-opacity="0.35" stroke-width="1"/>
-          <line x1="181" y1="220" x2="239" y2="220" stroke="var(--violet-soft)" stroke-opacity="0.35" stroke-width="1"/>
-          <line x1="176" y1="170" x2="244" y2="170" stroke="var(--violet-soft)" stroke-opacity="0.3" stroke-width="1"/>
+          <path d="M240,550 C185,528 185,488 240,468 C295,448 295,408 240,388 C185,368 185,328 240,308 C295,288 295,248 240,228 C185,208 185,168 240,148 C295,128 295,88 240,68" fill="none" stroke="var(--violet-soft)" stroke-width="2"/>
         </svg>
       </div>
     </div>
   </div>
-  <div class="sfooter"><span>NOCTIVE — CONFIDENTIAL</span><span class="fr"><img src="./assets/noctive-icon-mini.svg" alt=""><span>12 / 17</span></span></div>
+  <div class="sfooter"><span>NOCTIVE — CONFIDENTIAL</span><span class="fr"><img src="./assets/noctive-icon-mini.svg" alt=""><span>11 / 16</span></span></div>
   <aside class="notes">Research is the long game. The UAE has one of the world's largest national genome datasets — 815,000 samples and counting toward a million. That's exactly the frontier we want to build the AI layer for — with the UAE, not for export into it.</aside>
 </section>
 
-<!-- ================================================================ SLIDE 13 · LIGHT · STUDIO -->
+<!-- ================================================================ SLIDE 12 · LIGHT · STUDIO -->
 <section class="light" data-background-gradient="radial-gradient(120% 130% at 0% 0%, #FFFFFF 0%, #F7F7FB 62%)">
-  <div class="kicker">13 · HOW IT GETS DEPLOYED</div>
+  <div class="kicker">12 · HOW IT GETS DEPLOYED</div>
   <h1>Studio is how the ecosystem gets deployed inside every government and enterprise.</h1>
   <p class="subline">The Palantir-FDE / Core42-delivery model.</p>
   <div class="content">
     <div class="zone row" style="align-items:center;">
-      <div class="card" style="flex:1; padding:44px 48px;">
-        <div class="body-copy" style="font-size:26px; line-height:1.5;">Forward-deployed engineering that installs, configures and integrates the Noctive OS inside each institution; works alongside the Systemhaus channel on Enterprise.</div>
+      <div class="col" style="flex:1; gap:20px;">
+        <div class="card" style="padding:44px 48px;">
+          <div class="body-copy" style="font-size:26px; line-height:1.5;">Forward-deployed engineering that installs, configures and integrates the Noctive OS inside each institution; works alongside the Systemhaus channel on Enterprise.</div>
+        </div>
+        <div class="caption" style="color:var(--ink-dim); font-variant:small-caps; letter-spacing:2.5px;">ASSESS → DEPLOY → INTEGRATE → IMPROVE</div>
       </div>
       <div style="flex:1; display:flex; justify-content:center;">
-        <svg width="680" height="600" viewBox="0 0 680 600" aria-hidden="true">
+        <!-- circular flow: dashed guide circle, 4 nodes on the circle, 4 identical arc arrows -->
+        <svg width="660" height="580" viewBox="0 0 680 600" aria-hidden="true">
           <defs>
-            <marker id="arr13" markerWidth="11" markerHeight="11" refX="7" refY="4.5" orient="auto">
-              <path d="M0,0 L9,4.5 L0,9" fill="none" stroke="var(--violet-strong)" stroke-width="2"/>
+            <marker id="arr13" markerWidth="10" markerHeight="10" refX="6.5" refY="4" orient="auto">
+              <path d="M0,0 L8,4 L0,8" fill="none" stroke="var(--violet-strong)" stroke-width="2"/>
             </marker>
           </defs>
-          <circle cx="340" cy="300" r="210" fill="none" stroke="var(--line-light)" stroke-width="1"/>
-          <path d="M394,97 A210,210 0 0 1 543,246" fill="none" stroke="var(--violet-strong)" stroke-width="2" marker-end="url(#arr13)"/>
-          <path d="M543,354 A210,210 0 0 1 394,503" fill="none" stroke="var(--violet-strong)" stroke-width="2" marker-end="url(#arr13)"/>
-          <path d="M286,503 A210,210 0 0 1 137,354" fill="none" stroke="var(--violet-strong)" stroke-width="2" marker-end="url(#arr13)"/>
-          <path d="M137,246 A210,210 0 0 1 286,97" fill="none" stroke="var(--violet-strong)" stroke-width="2" marker-end="url(#arr13)"/>
+          <circle cx="340" cy="300" r="230" fill="none" stroke="var(--hair)" stroke-width="1" stroke-dasharray="4 6"/>
+          <path d="M411,81 A230,230 0 0 1 559,229" fill="none" stroke="var(--violet-strong)" stroke-width="2" marker-end="url(#arr13)"/>
+          <path d="M559,371 A230,230 0 0 1 411,519" fill="none" stroke="var(--violet-strong)" stroke-width="2" marker-end="url(#arr13)"/>
+          <path d="M269,519 A230,230 0 0 1 121,371" fill="none" stroke="var(--violet-strong)" stroke-width="2" marker-end="url(#arr13)"/>
+          <path d="M121,229 A230,230 0 0 1 269,81" fill="none" stroke="var(--violet-strong)" stroke-width="2" marker-end="url(#arr13)"/>
           <g>
-            <rect x="250" y="60" width="180" height="60" rx="30" fill="var(--card-light)" stroke="var(--violet-strong)" stroke-width="1.5"/>
-            <text x="340" y="98" text-anchor="middle" fill="var(--ink)" font-size="24" font-weight="500">assess</text>
+            <rect x="255" y="42" width="170" height="56" rx="28" fill="var(--card-light)" stroke="var(--violet-strong)" stroke-width="1.5"/>
+            <text x="340" y="78" text-anchor="middle" fill="var(--ink)" font-size="24" font-weight="500">assess</text>
           </g>
           <g>
-            <rect x="460" y="270" width="180" height="60" rx="30" fill="var(--card-light)" stroke="var(--violet-strong)" stroke-width="1.5"/>
-            <text x="550" y="308" text-anchor="middle" fill="var(--ink)" font-size="24" font-weight="500">deploy</text>
+            <rect x="485" y="272" width="170" height="56" rx="28" fill="var(--card-light)" stroke="var(--violet-strong)" stroke-width="1.5"/>
+            <text x="570" y="308" text-anchor="middle" fill="var(--ink)" font-size="24" font-weight="500">deploy</text>
           </g>
           <g>
-            <rect x="250" y="480" width="180" height="60" rx="30" fill="var(--card-light)" stroke="var(--violet-strong)" stroke-width="1.5"/>
-            <text x="340" y="518" text-anchor="middle" fill="var(--ink)" font-size="24" font-weight="500">integrate</text>
+            <rect x="255" y="502" width="170" height="56" rx="28" fill="var(--card-light)" stroke="var(--violet-strong)" stroke-width="1.5"/>
+            <text x="340" y="538" text-anchor="middle" fill="var(--ink)" font-size="24" font-weight="500">integrate</text>
           </g>
           <g>
-            <rect x="40" y="270" width="180" height="60" rx="30" fill="var(--card-light)" stroke="var(--violet-strong)" stroke-width="1.5"/>
-            <text x="130" y="308" text-anchor="middle" fill="var(--ink)" font-size="24" font-weight="500">improve</text>
+            <rect x="25" y="272" width="170" height="56" rx="28" fill="var(--card-light)" stroke="var(--violet-strong)" stroke-width="1.5"/>
+            <text x="110" y="308" text-anchor="middle" fill="var(--ink)" font-size="24" font-weight="500">improve</text>
           </g>
         </svg>
       </div>
     </div>
   </div>
-  <div class="sfooter"><span>NOCTIVE — CONFIDENTIAL</span><span class="fr"><img src="./assets/noctive-icon-mini.svg" alt=""><span>13 / 17</span></span></div>
+  <div class="sfooter"><span>NOCTIVE — CONFIDENTIAL</span><span class="fr"><img src="./assets/noctive-icon-mini.svg" alt=""><span>12 / 16</span></span></div>
   <aside class="notes">Studio is our forward-deployed engineering arm — the Palantir FDE analogy. It's how the OS actually lands inside a ministry or a bank, co-delivered with our channel partners.</aside>
 </section>
 
-<!-- ================================================================ SLIDE 14 · DARK (CONSTELLATION) · CORRIDOR -->
+<!-- ================================================================ SLIDE 13 · DARK (CONSTELLATION) · CORRIDOR -->
 <section class="dark" data-background-gradient="radial-gradient(120% 130% at 0% 0%, #1A1430 0%, #0B0A1A 62%)">
   <svg class="bg-accent" style="top:60px; right:64px;" width="460" height="200" viewBox="0 0 460 200" aria-hidden="true">
     <polyline points="10,150 100,40 210,110 320,20 440,80" fill="none" stroke="var(--violet-soft)" stroke-opacity="0.25" stroke-width="1"/>
@@ -795,7 +760,7 @@ svg text{ font-family:'Inter',sans-serif; font-feature-settings:"tnum" 1; }
     <circle cx="320" cy="20" r="3" fill="var(--violet-soft)" fill-opacity="0.6"/>
     <circle cx="440" cy="80" r="2.5" fill="var(--violet-soft)" fill-opacity="0.6"/>
   </svg>
-  <div class="kicker">14 · THE CORRIDOR</div>
+  <div class="kicker">13 · THE CORRIDOR</div>
   <h1>A live bridge between Europe's largest economy and the Gulf's AI capital.</h1>
   <p class="subline">The relationship already exists. We operationalize it for AI.</p>
   <div class="content">
@@ -806,23 +771,22 @@ svg text{ font-family:'Inter',sans-serif; font-feature-settings:"tnum" 1; }
             <circle cx="4" cy="4" r="1.7" fill="var(--violet-soft)"/>
           </pattern>
           <linearGradient id="arcg14" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0" stop-color="var(--violet-soft)" stop-opacity="0.25"/>
-            <stop offset="0.55" stop-color="var(--violet-soft)"/>
-            <stop offset="1" stop-color="var(--brand)"/>
+            <stop offset="0" stop-color="var(--brand)"/>
+            <stop offset="1" stop-color="var(--violet-soft)"/>
           </linearGradient>
           <filter id="arcblur14" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="4"/></filter>
         </defs>
         <path d="M110,110 Q210,55 315,90 Q382,72 428,125 Q462,185 418,236 Q362,290 272,285 Q170,300 110,242 Q66,170 110,110 Z" fill="url(#mapdots14)" opacity="0.30"/>
         <path d="M560,320 Q648,286 748,320 Q826,342 836,410 Q814,490 713,502 Q612,514 570,456 Q528,388 560,320 Z" fill="url(#mapdots14)" opacity="0.30"/>
-        <!-- corridor arc — rises, then descends into Dubai (G4, same style as slide 2) -->
-        <path d="M315,185 Q560,30 720,410" fill="none" stroke="var(--violet-soft)" stroke-opacity="0.5" stroke-width="5" filter="url(#arcblur14)"/>
-        <path d="M315,185 Q560,30 720,410" fill="none" stroke="url(#arcg14)" stroke-width="1.5" stroke-dasharray="12 9"/>
-        <circle cx="315" cy="185" r="6" fill="var(--brand)"/>
-        <circle cx="315" cy="185" r="13" fill="none" stroke="var(--brand)" stroke-opacity="0.4" stroke-width="1"/>
-        <circle cx="720" cy="410" r="6" fill="var(--brand)"/>
-        <circle cx="720" cy="410" r="13" fill="none" stroke="var(--brand)" stroke-opacity="0.4" stroke-width="1"/>
-        <text x="303" y="163" fill="var(--text-dim)" font-size="15" font-weight="500" letter-spacing="1.5" text-anchor="end">MUNICH</text>
-        <text x="742" y="437" fill="var(--text-dim)" font-size="15" font-weight="500" letter-spacing="1.5">ABU DHABI / DUBAI</text>
+        <!-- corridor arc: control point 140px above the Munich–Dubai chord; rises, lands gently in Dubai -->
+        <path d="M315,205 Q470,145 720,390" fill="none" stroke="var(--violet-soft)" stroke-opacity="0.45" stroke-width="6" filter="url(#arcblur14)"/>
+        <path d="M315,205 Q470,145 720,390" fill="none" stroke="url(#arcg14)" stroke-width="2"/>
+        <circle cx="315" cy="205" r="6" fill="var(--brand)"/>
+        <circle cx="315" cy="205" r="13" fill="none" stroke="var(--brand)" stroke-opacity="0.4" stroke-width="1"/>
+        <circle cx="720" cy="390" r="6" fill="var(--brand)"/>
+        <circle cx="720" cy="390" r="13" fill="none" stroke="var(--brand)" stroke-opacity="0.4" stroke-width="1"/>
+        <text x="303" y="183" fill="var(--text-dim)" font-size="15" font-weight="500" letter-spacing="1.5" text-anchor="end">MUNICH</text>
+        <text x="742" y="417" fill="var(--text-dim)" font-size="15" font-weight="500" letter-spacing="1.5">ABU DHABI / DUBAI</text>
       </svg>
       <div class="col" style="flex:1; gap:24px; justify-content:center;">
         <div class="card" style="padding:12px 38px;">
@@ -840,11 +804,11 @@ svg text{ font-family:'Inter',sans-serif; font-feature-settings:"tnum" 1; }
       </div>
     </div>
   </div>
-  <div class="sfooter"><span>NOCTIVE — CONFIDENTIAL</span><span class="fr"><img src="./assets/noctive-icon-mini.svg" alt=""><span>14 / 17</span></span></div>
+  <div class="sfooter"><span>NOCTIVE — CONFIDENTIAL</span><span class="fr"><img src="./assets/noctive-icon-mini.svg" alt=""><span>13 / 16</span></span></div>
   <aside class="notes">This corridor isn't aspirational — €13.56B in trade in 2025, ~2,000 German companies already in the UAE, a CEPA under discussion. We plug AI sovereignty into an existing, thriving relationship.</aside>
 </section>
 
-<!-- ================================================================ SLIDE 15 · DARK (CONSTELLATION) · ROADMAP: HUB + SOVEREIGN COMPUTE -->
+<!-- ================================================================ SLIDE 14 · DARK (CONSTELLATION) · ROADMAP: HUB + SOVEREIGN COMPUTE -->
 <section class="dark" data-background-gradient="radial-gradient(120% 130% at 0% 0%, #1A1430 0%, #0B0A1A 62%)">
   <svg class="bg-accent" style="top:48px; right:64px;" width="420" height="170" viewBox="0 0 420 170" aria-hidden="true">
     <polyline points="15,130 95,35 200,95 300,20 405,70" fill="none" stroke="var(--violet-soft)" stroke-opacity="0.25" stroke-width="1"/>
@@ -854,7 +818,7 @@ svg text{ font-family:'Inter',sans-serif; font-feature-settings:"tnum" 1; }
     <circle cx="300" cy="20" r="3" fill="var(--violet-soft)" fill-opacity="0.6"/>
     <circle cx="405" cy="70" r="2.5" fill="var(--violet-soft)" fill-opacity="0.6"/>
   </svg>
-  <div class="kicker">15 · PHASE 2 — ROADMAP, NOT A PROMISE</div>
+  <div class="kicker">14 · PHASE 2 — ROADMAP, NOT A PROMISE</div>
   <h1>After the channel scales, we build the talent moat: Noctive Hub.</h1>
   <p class="subline">Silicon Valley 2.0 in Germany — with a planned twin in Dubai.</p>
   <div class="content">
@@ -908,37 +872,39 @@ svg text{ font-family:'Inter',sans-serif; font-feature-settings:"tnum" 1; }
       </svg>
     </div>
   </div>
-  <div class="sfooter"><span>NOCTIVE — CONFIDENTIAL</span><span class="fr"><img src="./assets/noctive-icon-mini.svg" alt=""><span>15 / 17</span></span></div>
+  <div class="sfooter"><span>NOCTIVE — CONFIDENTIAL</span><span class="fr"><img src="./assets/noctive-icon-mini.svg" alt=""><span>14 / 16</span></span></div>
   <aside class="notes">Phase 2, clearly labeled. Once the channel is scaling, we build the Noctive Hub — an École-42-style, credential-blind talent engine, with a Dubai twin that fits the UAE's own coding-talent agenda. It's a talent moat and a deal-flow engine. This round funds at most a small pilot; the campus itself is future capital.</aside>
 </section>
 
-<!-- ================================================================ SLIDE 16 · LIGHT · TEAM & CREDIBILITY -->
+<!-- ================================================================ SLIDE 15 · LIGHT · TEAM & CREDIBILITY -->
 <section class="light" data-background-gradient="radial-gradient(120% 130% at 0% 0%, #FFFFFF 0%, #F7F7FB 62%)">
-  <div class="kicker">16 · WHY US</div>
+  <div class="kicker">15 · WHY US</div>
   <h1>A team that ships — and labels honestly.</h1>
   <p class="subline">Proof-of-shipping, not proof-of-slides.</p>
   <div class="content">
     <div class="zone" style="display:flex; flex-direction:column; gap:22px;">
       <div class="row" style="gap:24px;">
-        <div class="card" style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:20px; padding:32px;">
+        <div class="card" style="flex:1; min-height:320px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:20px; padding:32px;">
           <div style="width:140px; height:140px; border-radius:50%; border:2px dashed var(--brand); background:rgba(139,92,246,0.06);"></div>
           <div style="width:60%; border-bottom:2px dashed var(--line-light); height:14px;"></div>
           <div style="width:38%; border-bottom:2px dashed var(--line-light); height:2px;"></div>
         </div>
-        <div class="card" style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:20px; padding:32px;">
+        <div class="card" style="flex:1; min-height:320px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:20px; padding:32px;">
           <div style="width:140px; height:140px; border-radius:50%; border:2px dashed var(--brand); background:rgba(139,92,246,0.06);"></div>
           <div style="width:60%; border-bottom:2px dashed var(--line-light); height:14px;"></div>
           <div style="width:38%; border-bottom:2px dashed var(--line-light); height:2px;"></div>
         </div>
-        <div class="card" style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:20px; padding:32px;">
+        <div class="card" style="flex:1; min-height:320px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:20px; padding:32px;">
           <div style="width:140px; height:140px; border-radius:50%; border:2px dashed var(--brand); background:rgba(139,92,246,0.06);"></div>
           <div style="width:60%; border-bottom:2px dashed var(--line-light); height:14px;"></div>
           <div style="width:38%; border-bottom:2px dashed var(--line-light); height:2px;"></div>
         </div>
       </div>
-      <div class="confirm-box" style="margin:0 auto;">
-        <span class="confirm-label">TO CONFIRM</span>
-        [FOUNDERS TO CONFIRM: founder/CTO names, roles, and the specific thing each person shipped]
+      <div style="display:flex; justify-content:center; width:100%;">
+        <div class="confirm-box">
+          <span class="confirm-label">TO CONFIRM</span>
+          [FOUNDERS TO CONFIRM: founder/CTO names, roles, and the specific thing each person shipped]
+        </div>
       </div>
       <div class="card" style="padding:28px 36px;">
         <div style="font-family:'Poppins',sans-serif; font-size:24px; font-weight:600; margin-bottom:14px;">What we've shipped</div>
@@ -949,53 +915,54 @@ svg text{ font-family:'Inter',sans-serif; font-feature-settings:"tnum" 1; }
       </div>
     </div>
   </div>
-  <div class="sfooter"><span>NOCTIVE — CONFIDENTIAL</span><span class="fr"><img src="./assets/noctive-icon-mini.svg" alt=""><span>16 / 17</span></span></div>
+  <div class="sfooter"><span>NOCTIVE — CONFIDENTIAL</span><span class="fr"><img src="./assets/noctive-icon-mini.svg" alt=""><span>15 / 16</span></span></div>
   <aside class="notes">We deliberately avoid the Aleph Alpha trap — we don't claim frontier models or data centers we don't have. Our credibility is that we shipped a live product on our own hardware.</aside>
 </section>
 
-<!-- ================================================================ SLIDE 17 · DARK · TWO-TRACK ASK & CLOSE -->
+<!-- ================================================================ SLIDE 16 · DARK · TWO-TRACK ASK & CLOSE -->
 <section class="dark" data-background-gradient="radial-gradient(120% 130% at 0% 0%, #1A1430 0%, #0B0A1A 62%)">
-  <div class="kicker">17 · THE ASK</div>
+  <div class="kicker">16 · THE ASK</div>
   <h1>More than money: an equity seed and a strategic <span class="nb">co-build</span> partnership.</h1>
   <p class="subline">Modeled on Microsoft–G42 and Campus AI.</p>
-  <div class="content">
+  <div class="content" style="align-items:stretch;">
     <div class="zone" style="display:flex; flex-direction:column; gap:22px;">
-      <div class="row" style="align-items:stretch;">
-        <div class="card" style="flex:1; display:flex; flex-direction:column; gap:18px; padding:32px 38px;">
+      <div class="row" style="align-items:stretch; flex:1;">
+        <div class="card" style="flex:1; display:flex; flex-direction:column; gap:18px; padding:34px 40px;">
           <div class="caption" style="color:var(--violet-soft);">TRACK 1 — EQUITY</div>
-          <div class="body-copy" style="line-height:1.55; font-size:22px; flex:1;">€1.5–5.0M seed (range by scenario). Use of funds: engine/R&amp;D · channel enablement · certifications (ISO 27001 / BSI C5) · Gulf market entry · optional Hub pilot.</div>
+          <div class="body-copy" style="line-height:1.55; font-size:24px; flex:1;">€1.5–5.0M seed (range by scenario). Use of funds: engine/R&amp;D · channel enablement · certifications (ISO 27001 / BSI C5) · Gulf market entry · optional Hub pilot.</div>
           <div class="confirm-box">
             <span class="confirm-label">TO CONFIRM</span>
             [FOUNDERS TO CONFIRM: valuation / round size]
           </div>
         </div>
-        <div class="card" style="flex:1; display:flex; flex-direction:column; gap:18px; padding:32px 38px;">
+        <div class="card" style="flex:1; display:flex; flex-direction:column; gap:18px; padding:34px 40px;">
           <div class="caption" style="color:var(--violet-soft);">TRACK 2 — STRATEGIC CO-BUILD</div>
-          <div class="body-copy" style="line-height:1.55; font-size:22px; flex:1;">anchor customers · a Research JV (genomics) · market access · staged compute · regulatory sponsorship. Precedents: Microsoft–G42 ($1.5B equity + Azure commitment); Campus AI (MGX+Bpifrance+Mistral+NVIDIA JV).</div>
+          <div class="body-copy" style="line-height:1.55; font-size:24px; flex:1;">anchor customers · a Research JV (genomics) · market access · staged compute · regulatory sponsorship. Precedents: Microsoft–G42 ($1.5B equity + Azure commitment); Campus AI (MGX+Bpifrance+Mistral+NVIDIA JV).</div>
         </div>
       </div>
       <div class="caption-raw" style="color:var(--text-dim); font-size:16px;">Signed channel contracts convert traction from "pilot" to "distribution."</div>
       <svg width="100%" height="70" viewBox="0 0 1680 70" aria-hidden="true">
         <line x1="60" y1="26" x2="1620" y2="26" stroke="var(--line)" stroke-width="1"/>
-        <circle cx="240" cy="26" r="6" fill="var(--violet-soft)" fill-opacity="0.7"/>
+        <circle cx="240" cy="26" r="6" fill="var(--brand)"/>
         <text x="240" y="60" text-anchor="middle" fill="var(--text-dim)" font-size="16" font-weight="500" letter-spacing="1.5">PILOT</text>
         <circle cx="700" cy="26" r="6" fill="var(--brand)"/>
         <text x="700" y="60" text-anchor="middle" fill="var(--text-dim)" font-size="16" font-weight="500" letter-spacing="1.5">€300–500K GATE</text>
         <circle cx="1140" cy="26" r="6" fill="var(--brand)"/>
         <text x="1140" y="60" text-anchor="middle" fill="var(--text-dim)" font-size="16" font-weight="500" letter-spacing="1.5">€1M+ WITH SOVEREIGN/CVC LOI</text>
-        <circle cx="1500" cy="26" r="6" fill="none" stroke="var(--brand)" stroke-width="1.6"/>
+        <circle cx="1500" cy="26" r="6" fill="var(--brand)"/>
+        <circle cx="1500" cy="26" r="10" fill="none" stroke="var(--violet-soft)" stroke-width="2"/>
         <text x="1500" y="60" text-anchor="middle" fill="var(--text-dim)" font-size="16" font-weight="500" letter-spacing="1.5">SERIES A POSITIONING</text>
       </svg>
+      <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-top:8px;">
+        <div>
+          <div style="font-family:'Poppins',sans-serif; font-size:72px; font-weight:600; letter-spacing:-0.5px; margin-bottom:22px;">Let's talk.</div>
+          <img src="./assets/noctive-v5-tight.svg" alt="Noctive" style="height:48px; display:block;">
+        </div>
+        <div class="caption" style="color:var(--text-dim);">NOCTIVE.DE · [CONTACT E-MAIL] · MUNICH</div>
+      </div>
     </div>
   </div>
-  <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:28px;">
-    <div>
-      <div style="font-family:'Poppins',sans-serif; font-size:72px; font-weight:600; letter-spacing:-0.5px; margin-bottom:22px;">Let's talk.</div>
-      <img src="./assets/noctive-v5-tight.svg" alt="Noctive" style="height:48px; display:block;">
-    </div>
-    <div class="caption" style="color:var(--text-dim);">NOCTIVE.DE · [CONTACT E-MAIL] · MUNICH</div>
-  </div>
-  <div class="sfooter"><span>NOCTIVE — CONFIDENTIAL</span><span class="fr"><img src="./assets/noctive-icon-mini.svg" alt=""><span>17 / 17</span></span></div>
+  <div class="sfooter"><span>NOCTIVE — CONFIDENTIAL</span><span class="fr"><img src="./assets/noctive-icon-mini.svg" alt=""><span>16 / 16</span></span></div>
   <aside class="notes">We're asking for two things. Equity to scale the engine, the channel and certifications. And a strategic partnership — anchor customers, a genomics JV, market access, staged compute, regulatory sponsorship — exactly the Microsoft–G42 and Campus AI template. That's how a sovereign turns capital into national capability.</aside>
 </section>
 
